@@ -1,4 +1,4 @@
-name: NodeJS with Grunt
+name: NodeJS Build Workflow
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,7 +23,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+
+    - name: Check build artifacts
       run: |
-        npm install
-        grunt
+        if [ -d "dist" ]; then
+          echo "Build successful: 'dist' directory exists."
+        else
+          echo "Build failed: 'dist' directory missing."
+          exit 1
+        fi
