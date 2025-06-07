@@ -1,12 +1,49 @@
-# React + Vite
+# 📄 Gerenciamento de Documentos [FRONTEND]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Backend do Projeto](https://github.com/Rafaelrs21/Gerenciamento-de-arquivos/)
 
-Currently, two official plugins are available:
+## 📌 Sobre o Projeto
+O **Gerenciamento de Documentos** é um sistema desenvolvido para facilitar a organização, armazenamento e controle de documentos de forma segura e eficiente. Ele permite o gerenciamento centralizado de arquivos..
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Funcionalidades
+- Upload, download e gerenciamento de documentos
+- Controle de acesso e permissões
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 👥 Colaboradores
+- [Iasmim Silveira](https://github.com/iasmimsilveira)
+- [Rafael Santiago](https://github.com/Rafaelrs21)
+- [Breno Lobato](https://github.com/kick250)
+- [Lucio Caetano](https://github.com/caetanoinf)
+- [Gabriel Fonseca](https://github.com/gabrielborel)
+- [Tao Hansen](https://github.com/taohansens)
+- [Miguel Wiest](https://github.com/miguelwiest)
+---
+
+# Como Rodar o Projeto
+
+Este projeto é desenvolvido com Vite/React [JS].
+
+## Pré-requisitos
+Antes de começar, certifique-se de ter instalado:
+- [Node JS](https://adoptium.net/](https://nodejs.org/pt/download)
+
+## Como executar
+Para  de rodar o projeto, execute os seguintes comandos na pasta raiz.
+
+Instalar as dependências
+```sh
+npm install
+```
+Executar:
+```sh
+npm run dev
+```
+
+
+---
+Se tiver dúvidas, entre em contato com a equipe! 🚀
+=======
