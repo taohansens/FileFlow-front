@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { deleteFile, downloadFile } from '../../services/storage';
 import { useAuth } from '../../context/AuthContext';
+import {useNavigate} from "react-router-dom";
 
 const FileItem = ({ file, onUpdate }) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const { token } = useAuth();
+
+  const handleOpenFile = () => {
+    window.open('/file_content/' + file.id, '_blank');
+  }
 
   const handleDelete = async () => {
     if (confirm(`Tem certeza que deseja excluir ${file.name}?`)) {
@@ -47,19 +52,33 @@ const FileItem = ({ file, onUpdate }) => {
           </div>
         </div>
       </div>
-      
+
       <div className="flex space-x-2">
-        <button 
-          className="p-1 text-gray-500 hover:text-gray-700 rounded-md hover:bg-gray-100"
-          onClick={handleDownload}
-          disabled={isDownloading}
-          title="Baixar"
+        <button
+            className="p-1 text-gray-500 hover:text-gray-700 rounded-md hover:bg-gray-100"
+            onClick={handleOpenFile}
+            title="Ver"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+               className="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                  d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+            <path fill-rule="evenodd"
+                  d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
           </svg>
         </button>
-        <button 
+        <button
+            className="p-1 text-gray-500 hover:text-gray-700 rounded-md hover:bg-gray-100"
+            onClick={handleDownload}
+            disabled={isDownloading}
+            title="Baixar"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd"
+                  d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </button>
+        <button
           className="p-1 text-gray-500 hover:text-red-600 rounded-md hover:bg-gray-100"
           onClick={handleDelete}
           disabled={isDeleting}
