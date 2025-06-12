@@ -237,3 +237,27 @@ export const getFilesByFolder = async (folderId, token) => {
     throw error;
   }
 };
+
+export const getFileData = async (fileId, token) => {
+  try {
+    const response = await fetch(
+      `${API_URL}/file-versions/file/${fileId}/latest`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.status === 200) {
+      return await response.json();
+    } else {
+      throw new Error("Erro pegar arquivo.");
+    }
+  } catch (error) {
+    console.error("Erro pegar arquivo: ", error);
+    throw error;
+  }
+}
