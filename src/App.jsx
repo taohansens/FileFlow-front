@@ -4,6 +4,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import FileContent from './pages/FileContent';
+import RequestPasswordRecovery from "./pages/RequestPasswordRecovery.jsx";
+import PasswordRecovery from "./pages/PasswordRecovery.jsx";
 
 function App() {
   const { currentUser } = useAuth();
@@ -28,6 +30,8 @@ function App() {
         }
       />
       <Route path="/file_content/:id" element={<FileContent />} />
+      <Route path="/request_password_recovery" element={<RequestPasswordRecovery />} />
+      <Route path="/password_recovery" element={<PasswordRecovery />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
