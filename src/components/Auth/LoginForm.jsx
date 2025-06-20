@@ -25,7 +25,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     try {
       setLoading(true);
       await login(formData.email, formData.password);
@@ -45,7 +45,7 @@ const LoginForm = () => {
           {error}
         </div>
       )}
-      
+
       <Input
         type="email"
         label="Email"
@@ -55,7 +55,7 @@ const LoginForm = () => {
         placeholder="seuemail@exemplo.com"
         required
       />
-      
+
       <Input
         type="password"
         label="Senha"
@@ -65,22 +65,28 @@ const LoginForm = () => {
         placeholder="********"
         required
       />
-      
+
       <div className="flex items-center justify-between">
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           disabled={loading}
           className="w-full"
         >
           {loading ? 'Entrando...' : 'Entrar'}
         </Button>
       </div>
-      
+
       <div className="text-center mt-4">
         <p className="text-sm text-gray-600">
           Não tem uma conta?{' '}
           <Link to="/register" className="text-primary font-medium hover:text-secondary">
             Registre-se
+          </Link>
+        </p>
+        <p className="text-sm text-gray-600">
+          Esqueceu a senha?{' '}
+          <Link to="/request_password_recovery" className="text-primary font-medium hover:text-secondary">
+            Recuperar senha
           </Link>
         </p>
       </div>
